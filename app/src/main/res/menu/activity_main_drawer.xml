@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_action_inicio"
+            android:title="@string/menu_inicio" />
+        <item
+            android:id="@+id/nav_reservacion"
+            android:icon="@drawable/ic_action_reservacion"
+            android:title="@string/menu_reservacion" />
+        <item
+            android:id="@+id/nav_catalogo"
+            android:icon="@drawable/ic_action_catalogo"
+            android:title="@string/menu_catalogo" />
+        <item
+            android:id="@+id/nav_recorrido"
+            android:icon="@drawable/ic_action_recorrido"
+            android:title="@string/menu_recorrido" />
+        <item
+            android:id="@+id/nav_registro"
+            android:icon="@drawable/ic_action_registro"
+            android:title="@string/menu_registro" />
+        <item
+            android:id="@+id/nav_capturaqr"
+            android:icon="@drawable/ic_action_capturaqr"
+            android:title="@string/menu_capturarqr" />
+        <item
+            android:id="@+id/nav_publicidad"
+            android:icon="@drawable/ic_action_publicidad"
+            android:title="@string/menu_publicidad" />
+    </group>
+</menu>
