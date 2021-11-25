@@ -4,63 +4,57 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+
+import co.gofynd.gravityview.GravityView;
 import pe.edu.wariwillcago.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link recorrido#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
+
+
 public class recorrido extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+     ImageView img360;
+    GravityView gravityView;
+    private boolean esSoportado=false;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public recorrido() {
-        // Required empty public constructor
-    }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment recorrido.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static recorrido newInstance(String param1, String param2) {
-        recorrido fragment = new recorrido();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recorrido, container, false);
+        View vista=inflater.inflate(R.layout.fragment_recorrido, container, false);
+        img360 = vista.findViewById(R.id.img360);
+        gravityView = GravityView.getInstance(getActivity());
+        if (!gravityView.deviceSupported()) {
+            // show the error
+
+        } else {
+            // if device is supported then we will add the image
+            // in imageview and will show the image using graviety view
+            gravityView.setImage(img360, R.drawable.img).center();
+        }
+
+
+        return vista;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        gravityView.unRegisterListener();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        gravityView.registerListener();
     }
 }
