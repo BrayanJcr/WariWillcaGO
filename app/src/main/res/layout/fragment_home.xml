@@ -5,36 +5,60 @@
     android:layout_height="match_parent"
     tools:context=".ui.inicio.inicio"
     android:orientation="vertical"
-    style="@style/bcrStyleFragment">
+    android:background="@color/primaryColor">
 
     <!-- TODO: Update blank fragment layout -->
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WariVillca GO"
-        android:layout_gravity="center|top"
-        android:gravity="center"
-        android:textSize="34dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/primaryTextColor"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Es un yacimiento arqueológico del Perú, de la era prehispánica, cuya construcción principal es un santuario o adoratorio. Está ubicado en el valle del Mantaro, a unos 6 km al sur de la ciudad de Huancayo, en el anexo de Huari del distrito de Huancán, provincia de Huancayo, departamento de Junín, y a 3150 m s.n.m."
-        android:textSize="20dp"
-        android:layout_margin="15dp"
-        android:gravity="center"
-        android:textColor="@color/primaryTextColor"
-        ></TextView>
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WariVillca GO"
+            android:layout_gravity="center|top"
+            android:gravity="center"
+            android:textSize="34dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/primaryTextColor"
+            />
 
-    <VideoView
-        android:layout_width="350dp"
-        android:layout_height="180dp"
-        android:layout_margin="30dp"
-        ></VideoView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Es un yacimiento arqueológico del Perú, de la era prehispánica, cuya construcción principal es un santuario o adoratorio. Está ubicado en el valle del Mantaro, a unos 6 km al sur de la ciudad de Huancayo, en el anexo de Huari del distrito de Huancán, provincia de Huancayo, departamento de Junín, y a 3150 m s.n.m."
+            android:textSize="20dp"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:textColor="@color/primaryTextColor"
+            ></TextView>
+
+
+        <VideoView
+            android:layout_width="350dp"
+            android:layout_height="180dp"
+            android:layout_margin="30dp"
+            ></VideoView>
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            </com.google.android.gms.ads.AdView>
+        </LinearLayout>
+    </ScrollView>
+
 
 
 </LinearLayout>

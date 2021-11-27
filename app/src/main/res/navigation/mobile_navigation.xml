@@ -11,6 +11,7 @@
         android:label="@string/menu_inicio"
         tools:layout="@layout/fragment_home" />
 
+
     <fragment
         android:id="@+id/nav_reservacion"
         android:name="pe.edu.wariwillcago.ui.reservacion.reservacion"

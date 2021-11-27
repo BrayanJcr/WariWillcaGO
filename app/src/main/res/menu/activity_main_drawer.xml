@@ -29,9 +29,6 @@
             android:id="@+id/nav_capturaqr"
             android:icon="@drawable/ic_action_capturaqr"
             android:title="@string/menu_capturarqr" />
-        <item
-            android:id="@+id/nav_publicidad"
-            android:icon="@drawable/ic_action_publicidad"
-            android:title="@string/menu_publicidad" />
+
     </group>
 </menu>

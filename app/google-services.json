@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "541428517498",
+    "project_id": "wariwillcago-c8660",
+    "storage_bucket": "wariwillcago-c8660.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541428517498:android:cc0e244347c21d9ffc89c3",
+        "android_client_info": {
+          "package_name": "pe.edu.wariwillcago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541428517498-ru2p30g731hc2l7j89aieu3k5erhpn6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAog-5PcCHZkxSbP7cXXRlWw178xn2xK6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541428517498-ru2p30g731hc2l7j89aieu3k5erhpn6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
