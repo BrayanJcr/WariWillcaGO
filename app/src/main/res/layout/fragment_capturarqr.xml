@@ -9,81 +9,27 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:text="@string/menu_capturarqr"
-        style="@style/bcrStyleLabelTitulo"
-        ></TextView>
-
-    <TextView
-        android:text="Nombre *"
+        android:text="Puntos Juntados:"
         style="@style/bcrStyleLabelNormal"
+        android:layout_marginTop="25dp"
         ></TextView>
 
-    <EditText
-        android:id="@+id/edtnombre"
-        style="@style/bcrStyleEditText"></EditText>
+    <TextView
+        android:id="@+id/edtPuntos"
+        android:text="20 puntos"
+        style="@style/bcrStyleEditText"></TextView>
+
+    <Button
+        android:text="CAPTURAR QR"
+        style="@style/bcrStyleButton"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnCapturarQR"
+        ></Button>
 
     <TextView
-        android:text="DNI *"
+        android:text=""
         style="@style/bcrStyleLabelNormal"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textQR"
         ></TextView>
-
-    <EditText
-        android:id="@+id/edtdni"
-        style="@style/bcrStyleEditText"></EditText>
-
-    <TextView
-        android:text="Fecha *"
-        style="@style/bcrStyleLabelNormal"
-        ></TextView>
-
-    <TextView
-        android:id="@+id/edtfecha"
-        style="@style/bcrStyleEditText"
-        android:inputType="date"
-        ></TextView>
-
-    <TextView
-        android:text="Hora *"
-        style="@style/bcrStyleLabelNormal"
-        ></TextView>
-
-    <EditText
-        android:id="@+id/edthora"
-        style="@style/bcrStyleEditText"></EditText>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:text="Cantidad Niños *"
-                style="@style/bcrStyleLabelNormal"
-                ></TextView>
-
-            <Spinner
-                android:id="@+id/edtdninos"
-                style="@style/bcrStyleEditText"></Spinner>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:text="Cantidad Adultos *"
-                style="@style/bcrStyleLabelNormal"
-                ></TextView>
-
-            <Spinner
-                android:id="@+id/edtdadultos"
-                style="@style/bcrStyleEditText"></Spinner>
-
-        </LinearLayout>
-    </LinearLayout>
-
 </LinearLayout>
