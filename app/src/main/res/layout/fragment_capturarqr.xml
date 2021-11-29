@@ -26,10 +26,5 @@
         android:id="@+id/btnCapturarQR"
         ></Button>
 
-    <TextView
-        android:text=""
-        style="@style/bcrStyleLabelNormal"
-        android:layout_marginTop="25dp"
-        android:id="@+id/textQR"
-        ></TextView>
+
 </LinearLayout>

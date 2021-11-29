@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import pe.edu.wariwillcago.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,7 +21,7 @@ import pe.edu.wariwillcago.R;
  * create an instance of this fragment.
  */
 public class registro extends Fragment {
-
+    private AdView mAdView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -60,7 +65,18 @@ public class registro extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View vista = inflater.inflate(R.layout.fragment_reservacion, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro, container, false);
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = vista.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        return vista;
     }
 }

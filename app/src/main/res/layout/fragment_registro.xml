@@ -4,12 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.registro.registro"
+    android:orientation="vertical"
     style="@style/bcrStyleFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Aceptacion de terminos"
+        style="@style/bcrStyleLabelNormal"
+        android:layout_marginTop="25dp"
+        ></TextView>
 
+    <TextView
+        android:layout_marginTop="25dp"
+        android:text="Acepta pertenecer a la comunidad de protectores del patrimonio cultural de Warivilca"
+        style="@style/bcrStyleEditText"
+        ></TextView>
+
+    <Button
+        style="@style/bcrStyleButton"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnEnviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aceptar Terminos" />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
 </LinearLayout>
