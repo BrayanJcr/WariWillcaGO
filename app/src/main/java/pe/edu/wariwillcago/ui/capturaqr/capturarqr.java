@@ -90,7 +90,6 @@ public class capturarqr extends Fragment implements Response.Listener<JSONObject
         super.onViewCreated(view, savedInstanceState);
         System.out.println (datoQR);
 
-        ((TextView)view.findViewById(R.id.textQR)).setText(datoQR);
     }
 
     /**public void llamarWebService(){

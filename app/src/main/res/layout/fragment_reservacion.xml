@@ -32,12 +32,17 @@
         ></TextView>
 
     <EditText
-        android:id="@+id/edtfecha"
+        android:id="@+id/etPlannedDate"
         style="@style/bcrStyleEditText"
-        ></EditText>
+        android:hint="Seleccione la fecha"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1" />
+
 
     <TextView
-        android:text="Hora *"
+        android:text="Hora * (de 9 a 18)"
         style="@style/bcrStyleLabelNormal"
         ></TextView>
 
@@ -62,7 +67,8 @@
 
             <Spinner
                 android:id="@+id/edtdninos"
-                style="@style/bcrStyleEditText"></Spinner>
+                style="@style/bcrStyleEditText"
+                android:entries="@array/cantidad"></Spinner>
 
         </LinearLayout>
 
@@ -77,12 +83,15 @@
 
             <Spinner
                 android:id="@+id/edtdadultos"
-                style="@style/bcrStyleEditText"></Spinner>
+                style="@style/bcrStyleEditText"
+                android:entries="@array/cantidad"
+                ></Spinner>
 
         </LinearLayout>
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnReserva"
         android:text="RESERVAR"
         style="@style/bcrStyleButton"
         ></Button>
