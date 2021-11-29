@@ -34,6 +34,7 @@
         ></TextView>
 
     <EditText
+        android:id="@+id/edtCorreo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -53,6 +54,7 @@
         ></TextView>
 
     <EditText
+        android:id="@+id/edtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
