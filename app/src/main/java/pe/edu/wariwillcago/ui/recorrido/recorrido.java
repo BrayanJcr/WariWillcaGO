@@ -1,14 +1,12 @@
 package pe.edu.wariwillcago.ui.recorrido;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
 
 import co.gofynd.gravityview.GravityView;
 import pe.edu.wariwillcago.R;
@@ -31,7 +29,7 @@ public class recorrido extends Fragment {
         } else {
             // if device is supported then we will add the image
             // in imageview and will show the image using graviety view
-            gravityView.setImage(img360, R.drawable.img).center();
+            gravityView.setImage(img360, R.drawable.wari).center();
         }
 
 

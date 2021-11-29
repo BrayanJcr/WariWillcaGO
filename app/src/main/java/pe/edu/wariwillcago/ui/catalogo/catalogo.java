@@ -1,66 +1,100 @@
 package pe.edu.wariwillcago.ui.catalogo;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import pe.edu.wariwillcago.R;
+import pe.edu.wariwillcago.ui.Entidad.Artesania;
+import pe.edu.wariwillcago.ui.adapter.ArtesaniaAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link catalogo#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class catalogo extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public catalogo() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment catalogo.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static catalogo newInstance(String param1, String param2) {
-        catalogo fragment = new catalogo();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+public class catalogo extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
+    RecyclerView recyclerViewPersonajes;
+    ArrayList<Artesania> listaPersonaje;
+    ProgressDialog dialog;
+    RequestQueue request;
+    JsonObjectRequest jsonObjectRequest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catalogo, container, false);
+        View vista =inflater.inflate(R.layout.fragment_catalogo, container, false);
+        listaPersonaje= new ArrayList<>();
+        recyclerViewPersonajes=(RecyclerView) vista.findViewById(R.id.idRecyclerListaArtesania);
+        recyclerViewPersonajes.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerViewPersonajes.setHasFixedSize(true);
+        request = Volley.newRequestQueue(getContext());
+
+        //llamarWebservice
+        llamarWebservice();
+
+        return vista;
+    }
+
+    private void llamarWebservice() {
+        dialog =new ProgressDialog(getContext());
+        dialog.setMessage("Consultando Personajes");
+        dialog.show();
+        String url="http://152.70.136.7/wari/consultarlista.php";
+        jsonObjectRequest= new JsonObjectRequest (Request.Method.GET, url, null,this,this);
+        request.add(jsonObjectRequest);
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+        Artesania artesania=null;
+        JSONArray json=response.optJSONArray("artesania");
+        try {
+            for(int i=0; i<json.length();i++) {
+                artesania=new Artesania();
+                JSONObject jsonObject=null;
+                jsonObject=json.getJSONObject(i);
+                artesania.setId(jsonObject.optInt("codArt"));
+                artesania.setNombre(jsonObject.optString("tituloArt"));
+                artesania.setCaracteristicas(jsonObject.optString("descArt"));
+                artesania.setDato(jsonObject.optString("imgArt"));
+                listaPersonaje.add(artesania);
+            }
+            dialog.hide();
+            ArtesaniaAdapter adapter=new ArtesaniaAdapter(listaPersonaje);
+            recyclerViewPersonajes.setAdapter(adapter);
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+            Toast.makeText(getContext(), "No hay conexion con el servidor", Toast.LENGTH_SHORT).show();
+            dialog.hide();
+        }
+
+
     }
 }
