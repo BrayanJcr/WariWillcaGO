@@ -64,6 +64,7 @@
         ></EditText>
 
     <Button
+        android:id="@+id/btnIngreso"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,6 +75,7 @@
         ></Button>
 
     <Button
+        android:id="@+id/btnRegistro"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
