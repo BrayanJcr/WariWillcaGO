@@ -17,8 +17,8 @@
         ></TextView>
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:src="@drawable/ic_user_login"
         android:layout_gravity="center"
         ></ImageView>
@@ -69,17 +69,20 @@
         android:layout_height="wrap_content"
         android:text="Ingresar"
         android:textColor="@color/primaryColor"
+        android:background="@drawable/button_rounded"
         android:backgroundTint="@color/secondaryDarkColor"
         ></Button>
 
-
-    <TextView
+    <Button
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrate"
-        android:textColor="@color/teal_200"
-        ></TextView>
+        android:text="Registrarse"
+        android:textColor="@color/secondaryColor"
+        android:background="@drawable/button_rounded_border"
+
+        ></Button>
+
 
 
 
