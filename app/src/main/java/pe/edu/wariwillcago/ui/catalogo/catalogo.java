@@ -56,9 +56,9 @@ public class catalogo extends Fragment implements Response.Listener<JSONObject>,
 
     private void llamarWebservice() {
         dialog =new ProgressDialog(getContext());
-        dialog.setMessage("Consultando Artesanias");
+        dialog.setMessage("Consultando Personajes");
         dialog.show();
-        String url="http://152.70.136.7/wari/ConsultarlistaImagenes.php";
+        String url="http://152.70.136.7/wari/ConsultarListaImagenes.php";
         jsonObjectRequest= new JsonObjectRequest (Request.Method.GET, url, null,this,this);
         request.add(jsonObjectRequest);
     }
@@ -73,13 +73,13 @@ public class catalogo extends Fragment implements Response.Listener<JSONObject>,
     public void onResponse(JSONObject response) {
 
         Artesania artesania=null;
-        JSONArray json=response.optJSONArray("artesania");
+        JSONArray json=response.optJSONArray("tblartesania");
         try {
+
             for(int i=0; i<json.length();i++) {
                 artesania=new Artesania();
                 JSONObject jsonObject=null;
                 jsonObject=json.getJSONObject(i);
-                artesania.setId(jsonObject.optInt("codArt"));
                 artesania.setNombre(jsonObject.optString("tituloArt"));
                 artesania.setDato(jsonObject.optString("imgArt"));
                 listaPersonaje.add(artesania);

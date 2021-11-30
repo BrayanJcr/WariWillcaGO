@@ -35,7 +35,7 @@ public class ArtesaniaAdapter extends RecyclerView.Adapter<ArtesaniaAdapter.Arte
     @Override
     public void onBindViewHolder(@NonNull ArtesaniaHolder holder, int position) {
 //enlazar con los datos del ITEM
-        holder.txtId.setText(String.valueOf(listaArtesania.get(position).getId()));
+
         holder.txtNombre.setText(String.valueOf(listaArtesania.get(position).getNombre()));
         if (listaArtesania.get(position).getImagen() !=null)
             holder.imagen.setImageBitmap(listaArtesania.get(position).getImagen());
@@ -50,15 +50,14 @@ public class ArtesaniaAdapter extends RecyclerView.Adapter<ArtesaniaAdapter.Arte
     }
 
     public class ArtesaniaHolder extends RecyclerView.ViewHolder {
-        TextView txtId, txtNombre;
+        TextView  txtNombre;
         ImageView imagen;
-
         public ArtesaniaHolder(@NonNull View itemView) {
             super(itemView);
+         //   txtId=itemView.findViewById(R.id.pli_id);
             txtNombre=itemView.findViewById(R.id.pli_nombre);
+        //    txtDescripcion=itemView.findViewById(R.id.pli_descripcion);
             imagen=itemView.findViewById(R.id.pli_imagen);
-
-
         }
     }
 }
