@@ -65,7 +65,7 @@ public class registro extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista = inflater.inflate(R.layout.fragment_reservacion, container, false);
+        View vista = inflater.inflate(R.layout.fragment_registro, container, false);
         // Inflate the layout for this fragment
         MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
             @Override
