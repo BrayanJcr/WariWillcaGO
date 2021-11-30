@@ -56,9 +56,9 @@ public class catalogo extends Fragment implements Response.Listener<JSONObject>,
 
     private void llamarWebservice() {
         dialog =new ProgressDialog(getContext());
-        dialog.setMessage("Consultando Personajes");
+        dialog.setMessage("Consultando Artesanias");
         dialog.show();
-        String url="http://152.70.136.7/wari/consultarlista.php";
+        String url="http://152.70.136.7/wari/ConsultarlistaImagenes.php";
         jsonObjectRequest= new JsonObjectRequest (Request.Method.GET, url, null,this,this);
         request.add(jsonObjectRequest);
     }

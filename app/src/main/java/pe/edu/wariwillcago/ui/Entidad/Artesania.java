@@ -11,6 +11,10 @@ public class Artesania {
     private String nombre;
     private String dato;
     private Bitmap imagen;
+    private String datoImUbi;
+    private Bitmap imagenUbic;
+    private String descripcion;
+
 
     public String getDato() {
         //se recibe en formato binarizado la imagen - UNICODE
@@ -25,12 +29,46 @@ public class Artesania {
             int ancho=100;
             Bitmap imagenO= BitmapFactory.decodeByteArray(bytecode,0,bytecode.length);
             imagen=Bitmap.createScaledBitmap(imagenO,alto,ancho,true);
-
         }
         catch (Exception e){
             e.printStackTrace();
 
         }
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getDatoImUbi() {
+        return datoImUbi;
+    }
+
+    public void setDatoImUbi(String datoImUbi) {
+        this.datoImUbi = datoImUbi;
+        try {
+            byte[] bytecode= Base64.decode(datoImUbi,Base64.DEFAULT);
+            int alto=100;
+            int ancho=100;
+            Bitmap imagenO= BitmapFactory.decodeByteArray(bytecode,0,bytecode.length);
+            imagenUbic=Bitmap.createScaledBitmap(imagenO,alto,ancho,true);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+
+        }
+    }
+
+    public Bitmap getImagenUbic() {
+        return imagenUbic;
+    }
+
+    public void setImagenUbic(Bitmap imagenUbic) {
+        this.imagenUbic = imagenUbic;
     }
 
     public Bitmap getImagen() {

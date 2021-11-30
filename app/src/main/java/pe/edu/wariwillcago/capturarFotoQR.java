@@ -65,7 +65,7 @@ public class capturarFotoQR extends AppCompatActivity implements Response.Listen
     @Override
     public void onErrorResponse(VolleyError error) {
         dialog.hide();
-        Toast.makeText(this,"Error al llamar qr",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"No existe ese QR",Toast.LENGTH_SHORT).show();
         Log.i("Error",error.toString());
     }
 
@@ -75,9 +75,14 @@ public class capturarFotoQR extends AppCompatActivity implements Response.Listen
         try {
             for(int i=0; i<json.length();i++) {
                 JSONObject jsonObject=null;
+                String id;
                 jsonObject=json.getJSONObject(i);
-                System.out.println(jsonObject.optString("codArt"));
-                Toast.makeText(this, jsonObject.optString("codArt") , Toast.LENGTH_SHORT).show();
+                id = jsonObject.optString("codArt");
+                System.out.println(id);
+                Toast.makeText(this, id , Toast.LENGTH_SHORT).show();
+                Intent inten = new Intent(capturarFotoQR.this,detalle_artesania.class);
+                inten.putExtra("IDArte",id);
+                startActivity(inten);
             }
             dialog.hide();
         }
