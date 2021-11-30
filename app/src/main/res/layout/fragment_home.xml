@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.inicio.inicio"
     android:orientation="vertical"
     android:background="@color/primaryColor">
@@ -17,7 +18,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
-        <TextView
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WariVillca GO"
@@ -29,7 +41,7 @@
             android:textColor="@color/primaryTextColor"
             />
 
-        <TextView
+            <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Es un yacimiento arqueológico del Perú, de la era prehispánica, cuya construcción principal es un santuario o adoratorio. Está ubicado en el valle del Mantaro, a unos 6 km al sur de la ciudad de Huancayo, en el anexo de Huari del distrito de Huancán, provincia de Huancayo, departamento de Junín, y a 3150 m s.n.m."
@@ -37,27 +49,18 @@
             android:layout_margin="13dp"
             android:gravity="center"
             android:textColor="@color/primaryTextColor"
-            ></TextView>
+        ></TextView>
 
-
-        <WebView
-            android:id="@+id/webViewYoutube"
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_margin="30dp"
-            tools:ignore="WebViewLayout"></WebView>
+            android:layout_height="wrap_content"
+            app:videoId="eCghr9w3cWU"
+            app:autoPlay="true"
+            app:showYouTubeButton="false"
+            >
 
-            <com.google.android.gms.ads.AdView
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-                android:id="@+id/adView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:gravity="center"
-                ads:adSize="BANNER"
-                ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-            </com.google.android.gms.ads.AdView>
+        </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
 
         </LinearLayout>
     </ScrollView>
