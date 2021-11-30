@@ -37,7 +37,6 @@ public class ArtesaniaAdapter extends RecyclerView.Adapter<ArtesaniaAdapter.Arte
 //enlazar con los datos del ITEM
         holder.txtId.setText(String.valueOf(listaArtesania.get(position).getId()));
         holder.txtNombre.setText(String.valueOf(listaArtesania.get(position).getNombre()));
-        holder.txtDescripcion.setText(String.valueOf(listaArtesania.get(position).getCaracteristicas()));
         if (listaArtesania.get(position).getImagen() !=null)
             holder.imagen.setImageBitmap(listaArtesania.get(position).getImagen());
         else

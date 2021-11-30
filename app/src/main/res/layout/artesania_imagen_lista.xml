@@ -13,42 +13,33 @@
         >
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/pli_imagen"
             android:src="@mipmap/ic_launcher"
             android:layout_margin="10dp"
+            android:layout_gravity="center_vertical"
             ></ImageView>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/pli_id"
-                android:text="ID"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                ></TextView>
+                style="@style/bcrStyleLabelNormal"
+                android:layout_marginTop="25dp"
+                android:text="Nombre :"></TextView>
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/bcrStyleEditText"
                 android:id="@+id/pli_nombre"
-                android:text="Nombre"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                ></TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/pli_descripcion"
-                android:text="Descripcion"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                ></TextView>
+                android:text="Nombre"></TextView>
+
+            <Button
+                style="@style/bcrStyleButton"
+                android:text="Ver mas"
+                ></Button>
 
         </LinearLayout>
 

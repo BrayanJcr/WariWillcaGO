@@ -38,7 +38,8 @@
         android:inputType="date"
         android:focusable="false"
         android:clickable="true"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColorHint="@color/black"/>
 
 
     <TextView

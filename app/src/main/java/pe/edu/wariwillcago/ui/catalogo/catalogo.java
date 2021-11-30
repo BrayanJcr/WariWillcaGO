@@ -30,6 +30,7 @@ import pe.edu.wariwillcago.ui.adapter.ArtesaniaAdapter;
 
 
 public class catalogo extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
+
     RecyclerView recyclerViewPersonajes;
     ArrayList<Artesania> listaPersonaje;
     ProgressDialog dialog;
@@ -60,7 +61,6 @@ public class catalogo extends Fragment implements Response.Listener<JSONObject>,
         String url="http://152.70.136.7/wari/consultarlista.php";
         jsonObjectRequest= new JsonObjectRequest (Request.Method.GET, url, null,this,this);
         request.add(jsonObjectRequest);
-
     }
 
     @Override
@@ -81,7 +81,6 @@ public class catalogo extends Fragment implements Response.Listener<JSONObject>,
                 jsonObject=json.getJSONObject(i);
                 artesania.setId(jsonObject.optInt("codArt"));
                 artesania.setNombre(jsonObject.optString("tituloArt"));
-                artesania.setCaracteristicas(jsonObject.optString("descArt"));
                 artesania.setDato(jsonObject.optString("imgArt"));
                 listaPersonaje.add(artesania);
             }

@@ -3,12 +3,12 @@ package pe.edu.wariwillcago.ui.Entidad;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
+import android.view.View;
 
 public class Artesania {
 
     private int Id;
     private String nombre;
-    private String descripcion;
     private String dato;
     private Bitmap imagen;
 
@@ -25,6 +25,7 @@ public class Artesania {
             int ancho=100;
             Bitmap imagenO= BitmapFactory.decodeByteArray(bytecode,0,bytecode.length);
             imagen=Bitmap.createScaledBitmap(imagenO,alto,ancho,true);
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -40,15 +41,13 @@ public class Artesania {
         this.imagen = imagen;
     }
 
-    public Artesania(int id, String nombre, String caracteristicas) {
+    public Artesania(int id, String nombre) {
         Id = id;
         this.nombre = nombre;
-        this.descripcion = caracteristicas;
     }
     public Artesania() {
         Id = 0;
         this.nombre = "";
-        this.descripcion = "";
     }
 
     public int getId() {
@@ -67,11 +66,4 @@ public class Artesania {
         this.nombre = nombre;
     }
 
-    public String getCaracteristicas() {
-        return descripcion;
-    }
-
-    public void setCaracteristicas(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }
