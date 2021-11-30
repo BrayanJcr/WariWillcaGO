@@ -70,8 +70,8 @@ public class registroActivity extends AppCompatActivity implements View.OnClickL
 
                 }
                 else{
-                    if (!correoReg.contains("@")){
-
+                    if (correoReg.contains("@")){
+                        llamarWebService();
                     }else{
                         Toast.makeText(this, "Ingrese un correo electrónico valido", Toast.LENGTH_SHORT).show();
                     }
