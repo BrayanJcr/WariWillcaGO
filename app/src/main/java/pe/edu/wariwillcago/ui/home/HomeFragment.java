@@ -38,8 +38,6 @@ public class HomeFragment extends  Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-
-
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
@@ -52,7 +50,6 @@ public class HomeFragment extends  Fragment {
             }
         });
 
-
         MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -62,9 +59,6 @@ public class HomeFragment extends  Fragment {
         mAdView = root.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-
-
-
         return root;
     }
 
