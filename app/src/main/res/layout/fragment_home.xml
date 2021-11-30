@@ -40,11 +40,12 @@
             ></TextView>
 
 
-        <VideoView
+        <WebView
+            android:id="@+id/webViewYoutube"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_margin="30dp"
-            ></VideoView>
+            tools:ignore="WebViewLayout"></WebView>
 
             <com.google.android.gms.ads.AdView
                 xmlns:ads="http://schemas.android.com/apk/res-auto"

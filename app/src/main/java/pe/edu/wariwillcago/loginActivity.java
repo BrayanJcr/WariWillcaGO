@@ -99,7 +99,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText(this, "Ingreso Existoso", Toast.LENGTH_SHORT).show();
+
         progreso.hide();
         edtCorreo.setText("");
         edtPass.setText("");
@@ -123,6 +123,7 @@ public class loginActivity extends AppCompatActivity implements View.OnClickList
             Toast.makeText(this, "usuario no registrado", Toast.LENGTH_SHORT).show();
         }
         else{
+            Toast.makeText(this, "Ingreso Existoso", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(loginActivity.this, MainActivity.class);
             startActivity(intent);
         }

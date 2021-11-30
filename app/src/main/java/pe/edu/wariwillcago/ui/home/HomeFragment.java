@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -29,11 +31,14 @@ public class HomeFragment extends  Fragment {
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
     private AdView mAdView;
-    YouTubePlayerView youTubePlayerView;
+    WebView webViewYoutube;
 
     @SuppressLint("MissingPermission")
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
 
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
@@ -47,6 +52,8 @@ public class HomeFragment extends  Fragment {
              
             }
         });
+
+
         MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -56,6 +63,9 @@ public class HomeFragment extends  Fragment {
         mAdView = root.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+
+
         return root;
     }
 
