@@ -52,10 +52,13 @@ public class ArtesaniaAdapter extends RecyclerView.Adapter<ArtesaniaAdapter.Arte
     public class ArtesaniaHolder extends RecyclerView.ViewHolder {
         TextView txtId, txtNombre;
         ImageView imagen;
+
         public ArtesaniaHolder(@NonNull View itemView) {
             super(itemView);
             txtNombre=itemView.findViewById(R.id.pli_nombre);
             imagen=itemView.findViewById(R.id.pli_imagen);
+
+
         }
     }
 }
