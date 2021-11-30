@@ -20,8 +20,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubePlayerView;
+
 
 import pe.edu.wariwillcago.R;
 import pe.edu.wariwillcago.databinding.FragmentHomeBinding;
