@@ -8,26 +8,8 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="Nombre *"
-        style="@style/bcrStyleLabelNormal"
-        android:layout_marginTop="25dp"
-        ></TextView>
-
-    <EditText
-        android:id="@+id/edtnombre"
-        style="@style/bcrStyleEditText"></EditText>
-
-    <TextView
-        android:text="DNI *"
-        style="@style/bcrStyleLabelNormal"
-        ></TextView>
-
-    <EditText
-        android:id="@+id/edtdni"
-        style="@style/bcrStyleEditText"></EditText>
-
-    <TextView
         android:text="Fecha *"
+        android:layout_marginTop="25dp"
         style="@style/bcrStyleLabelNormal"
         ></TextView>
 

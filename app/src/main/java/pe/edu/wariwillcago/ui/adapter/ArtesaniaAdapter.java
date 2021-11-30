@@ -54,9 +54,7 @@ public class ArtesaniaAdapter extends RecyclerView.Adapter<ArtesaniaAdapter.Arte
         ImageView imagen;
         public ArtesaniaHolder(@NonNull View itemView) {
             super(itemView);
-            txtId=itemView.findViewById(R.id.pli_id);
             txtNombre=itemView.findViewById(R.id.pli_nombre);
-            txtDescripcion=itemView.findViewById(R.id.pli_descripcion);
             imagen=itemView.findViewById(R.id.pli_imagen);
         }
     }

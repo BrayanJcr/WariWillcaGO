@@ -8,17 +8,25 @@ import androidx.fragment.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-import pe.edu.wariwillcago.ui.capturaqr.capturarqr;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class capturarFotoQR extends AppCompatActivity {
+
+public class capturarFotoQR extends AppCompatActivity implements Response.Listener<JSONObject>,Response.ErrorListener{
 
     ProgressDialog dialog;
     RequestQueue request;
@@ -38,25 +46,45 @@ public class capturarFotoQR extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         String datos = result.getContents();
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
         System.out.println(datos);
-        Bundle bundle = new Bundle();
-
-        bundle.putString("datoQR", datos);
-        capturarqr fragment = new capturarqr();
-        fragment.setArguments(bundle);
-        fragmentTransaction.add(R.id.nav_capturaqr, fragment);
-        fragmentTransaction.commit();
+        llamarWebservice(datos);
+        Toast.makeText(this, "QR: "+datos, Toast.LENGTH_SHORT).show();
     }
 
-    private void llamarWebservice() {
+    private void llamarWebservice(String QR) {
         dialog =new ProgressDialog(this);
-        dialog.setMessage("Consultando Personajes");
+        dialog.setMessage("Consultando QR");
         dialog.show();
-        //String url="http://152.70.136.7/wari/consultarlista.php?imgQR="+datos;
-        //jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null,this,this);
+        String url="http://152.70.136.7/wari/consultarQR.php?datoQR="+QR;
+        url=url.replace(" ","%20");
+        request = Volley.newRequestQueue(this);
+        jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null,this,this);
         request.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        dialog.hide();
+        Toast.makeText(this,"Error al llamar qr",Toast.LENGTH_SHORT).show();
+        Log.i("Error",error.toString());
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+        JSONArray json=response.optJSONArray("tblartesania");
+        try {
+            for(int i=0; i<json.length();i++) {
+                JSONObject jsonObject=null;
+                jsonObject=json.getJSONObject(i);
+                System.out.println(jsonObject.optString("codArt"));
+                Toast.makeText(this, jsonObject.optString("codArt") , Toast.LENGTH_SHORT).show();
+            }
+            dialog.hide();
+        }
+        catch (JSONException e){
+            e.printStackTrace();
+            Toast.makeText(this, "No hay conexion con el servidor", Toast.LENGTH_SHORT).show();
+            dialog.hide();
+        }
     }
 }
