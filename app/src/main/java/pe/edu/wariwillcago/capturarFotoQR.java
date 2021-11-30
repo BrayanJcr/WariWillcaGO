@@ -45,8 +45,6 @@ public class capturarFotoQR extends AppCompatActivity implements Response.Listen
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         String datos = result.getContents();
-
-        System.out.println(datos);
         llamarWebservice(datos);
         Toast.makeText(this, "QR: "+datos, Toast.LENGTH_SHORT).show();
     }
@@ -72,6 +70,7 @@ public class capturarFotoQR extends AppCompatActivity implements Response.Listen
     @Override
     public void onResponse(JSONObject response) {
         JSONArray json=response.optJSONArray("tblartesania");
+
         try {
             for(int i=0; i<json.length();i++) {
                 JSONObject jsonObject=null;
@@ -80,6 +79,7 @@ public class capturarFotoQR extends AppCompatActivity implements Response.Listen
                 id = jsonObject.optString("codArt");
                 System.out.println(id);
                 Toast.makeText(this, id , Toast.LENGTH_SHORT).show();
+
                 Intent inten = new Intent(capturarFotoQR.this,detalle_artesania.class);
                 inten.putExtra("IDArte",id);
                 startActivity(inten);

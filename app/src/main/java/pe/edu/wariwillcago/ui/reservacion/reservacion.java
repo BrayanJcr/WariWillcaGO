@@ -3,6 +3,7 @@ package pe.edu.wariwillcago.ui.reservacion;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 import pe.edu.wariwillcago.R;
+import pe.edu.wariwillcago.capturarFotoQR;
+import pe.edu.wariwillcago.detalle_artesania;
 import pe.edu.wariwillcago.ui.Entidad.Artesania;
 import pe.edu.wariwillcago.ui.adapter.ArtesaniaAdapter;
 
@@ -120,7 +123,7 @@ public class reservacion extends Fragment implements View.OnClickListener, Respo
 
      String url="http://152.70.136.7/wari/registroReservacion.php?"+
              "codUsuario="+1+"&fecha="+fecha+"&hora="+edtHora.getText().toString()+
-             "&cantNino="+edtCantNi.getSelectedItem().toString()+
+        "&cantNino="+edtCantNi.getSelectedItem().toString()+
              "&cantAdultos="+edtCantAdul.getSelectedItem().toString();
 
      //Cod Usuario es 3 por que hay en la base de datos y ahi se asigna la sesion

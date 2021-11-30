@@ -19,6 +19,10 @@
             android:name=".registroActivity"
             android:exported="false" />
         <activity
+            android:name=".detalle_artesania"
+            android:exported="false" />
+        <activity
+
             android:name=".loginActivity"
             android:exported="true">
             <intent-filter>

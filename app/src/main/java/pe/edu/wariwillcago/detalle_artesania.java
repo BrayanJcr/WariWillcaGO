@@ -57,7 +57,7 @@ public class detalle_artesania extends AppCompatActivity implements Response.Lis
         dialog =new ProgressDialog(this);
         dialog.setMessage("Consultando QR");
         dialog.show();
-        String url="http://192.168.100.201:80/anim/consultarArtesa.php?ID="+ID;
+        String url="http://152.70.136.7/wari/consultarArtesa.php?ID="+ID;
         url=url.replace(" ","%20");
         request = Volley.newRequestQueue(this);
         jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null,this,this);
